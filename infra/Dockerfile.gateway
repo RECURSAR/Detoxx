@@ -1,0 +1,18 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+
+COPY apps/gateway/package.json ./apps/gateway/package.json
+RUN cd apps/gateway && npm install
+
+COPY apps/gateway ./apps/gateway
+RUN cd apps/gateway && npm run build
+
+FROM node:20-alpine AS runtime
+WORKDIR /app
+
+COPY --from=build /app/apps/gateway/package.json ./apps/gateway/package.json
+COPY --from=build /app/apps/gateway/node_modules ./apps/gateway/node_modules
+COPY --from=build /app/apps/gateway/dist ./apps/gateway/dist
+
+EXPOSE 3000
+CMD ["node", "apps/gateway/dist/index.js"]

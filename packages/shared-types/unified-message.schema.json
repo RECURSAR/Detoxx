@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tonewise.dev/schemas/unified-message.schema.json",
+  "title": "UnifiedMessage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "messageId",
+    "platform",
+    "userId",
+    "channelId",
+    "rawText",
+    "history",
+    "metadata"
+  ],
+  "properties": {
+    "messageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["slack", "teams"]
+    },
+    "userId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channelId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rawText": {
+      "type": "string",
+      "minLength": 1
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "text", "timestamp"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["user", "bot"]
+          },
+          "text": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.gateway
+    env_file:
+      - ../.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pipeline
+
+  pipeline:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.pipeline
+    env_file:
+      - ../.env
+    ports:
+      - "8000:8000"
