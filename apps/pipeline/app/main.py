@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.router import router
 from app.config.settings import settings
 
-app = FastAPI(title="ToneWise Pipeline", version="0.1.0")
+app = FastAPI(title="Detoxx Pipeline", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,

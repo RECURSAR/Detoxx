@@ -2,7 +2,7 @@
 
 # Section 1: Project Overview
 
-ToneWise rewrites direct or emotionally charged workplace messages into professional language before they are sent. Incoming messages from Slack or Teams are normalized into a shared TypeScript/Python contract (`UnifiedMessage`) and forwarded to a Python FastAPI pipeline. The pipeline cleans the text, builds conversational context, composes an LLM prompt, executes a selected provider, and postprocesses the response. The gateway then returns the rewritten text to the same channel so the user can send a polished version.
+Detoxx rewrites direct or emotionally charged workplace messages into professional language before they are sent. Incoming messages from Slack or Teams are normalized into a shared TypeScript/Python contract (`UnifiedMessage`) and forwarded to a Python FastAPI pipeline. The pipeline cleans the text, builds conversational context, composes an LLM prompt, executes a selected provider, and postprocesses the response. The gateway then returns the rewritten text to the same channel so the user can send a polished version.
 
 # Section 2: Architecture Diagram (ASCII)
 

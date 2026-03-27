@@ -1,14 +1,14 @@
 {
-	"name": "tonewise",
+	"name": "detoxx",
 	"version": "0.1.0",
 	"private": true,
-	"description": "ToneWise monorepo with gateway and LLM rewrite pipeline",
+	"description": "Detoxx monorepo with gateway and LLM rewrite pipeline",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
 	],
 	"scripts": {
-		"dev:gateway": "npm --workspace @tonewise/gateway run dev",
-		"build:gateway": "npm --workspace @tonewise/gateway run build"
+		"dev:gateway": "npm --workspace @detoxx/gateway run dev",
+		"build:gateway": "npm --workspace @detoxx/gateway run build"
 	}
 }
