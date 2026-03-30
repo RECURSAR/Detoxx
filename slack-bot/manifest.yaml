@@ -1,0 +1,49 @@
+display_information:
+  name: Detoxx
+  description: Your private AI communication assistant. Send me a raw message and I'll rewrite it professionally before you send it.
+  background_color: "#1a1a2e"
+  long_description: Detoxx helps you communicate professionally under pressure. DM me your unfiltered message, optionally tell me which channel to pull context from, and I'll return a clean, polished version for you to send yourself. Nothing is ever posted automatically.
+features:
+  bot_user:
+    display_name: Detoxx
+    always_online: true
+  slash_commands:
+    - command: /rewrite
+      url: https://your-gateway-url.com/slack/commands/rewrite
+      description: Rewrite a message to sound professional
+      usage_hint: "[your raw message here]"
+      should_escape: false
+    - command: /fetch-context
+      url: https://your-gateway-url.com/slack/commands/fetch-context
+      description: Load recent messages from a channel as context
+      usage_hint: "#channel-name [optional message count]"
+      should_escape: false
+    - command: /tone
+      url: https://your-gateway-url.com/slack/commands/tone
+      description: Set your tone preset for rewrites
+      usage_hint: "[default | assertive | diplomatic]"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - commands
+      - chat:write
+      - im:read
+      - im:history
+      - channels:history
+      - groups:history
+      - mpim:history
+      - channels:read
+      - groups:read
+      - users:read
+      - im:write
+settings:
+  event_subscriptions:
+    request_url: https://your-gateway-url.com/slack/events
+    bot_events:
+      - message.im
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
