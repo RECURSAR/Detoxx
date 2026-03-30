@@ -44,7 +44,7 @@ export async function fetchSlackContext(
         typeof item.text === "string" && typeof item.ts === "string",
     )
     .map((item: SlackHistoryMessage) => ({
-      role: item.bot_id ? "bot" : "user",
+      role: (item.bot_id ? "bot" : "user") as "bot" | "user",
       text: item.text as string,
       timestamp: item.ts as string,
     }))

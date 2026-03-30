@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
+import path from "path";
 
-dotenv.config();
+// .env lives at the monorepo root (four directories up from apps/gateway/src/config/)
+dotenv.config({ path: path.resolve(__dirname, "../../../../.env") });
 
 interface Config {
   slackBotToken: string;

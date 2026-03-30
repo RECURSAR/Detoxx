@@ -20,7 +20,7 @@ export async function platformAuthPreHandler(
   request: FastifyRequest,
   reply: FastifyReply,
 ): Promise<void> {
-  const path = request.routerPath ?? request.url;
+  const path = request.routeOptions.url ?? request.url;
 
   if (path.startsWith("/slack") && !hasValidSlackSignature(request)) {
     reply.code(401).send({ error: "Unauthorized Slack request" });

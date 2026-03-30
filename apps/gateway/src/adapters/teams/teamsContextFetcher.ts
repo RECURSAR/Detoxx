@@ -39,7 +39,7 @@ export async function fetchTeamsContext(
   return (response.data.value ?? [])
     .filter((message: TeamsMessage) => typeof message.text === "string")
     .map((message: TeamsMessage) => ({
-      role: message.from?.id ? "user" : "bot",
+      role: (message.from?.id ? "user" : "bot") as "bot" | "user",
       text: message.text ?? "",
       timestamp: message.createdDateTime ?? new Date().toISOString(),
     }))
